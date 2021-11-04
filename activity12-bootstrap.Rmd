@@ -1,6 +1,6 @@
 ---
 title: "Activity 12"
-author: "Name"
+author: "Lauren Proctor"
 output: github_document
 ---
 
@@ -13,6 +13,11 @@ knitr::opts_chunk$set(error = TRUE)
 
 In this activity you will be bootstrapping - a form of statistical inference that uses resampling methods.
 First, you will need `{tidyverse}` and `{infer}`.
+
+```{r}
+library(tidyverse)
+library(infer)
+```
 
 
 ### Data
@@ -58,24 +63,29 @@ Our variable of interest for this Activity is going to be `educ` which is the nu
 Plot a histogram of `educ` with an overlaying density.
 Comment on the center, spread, and shape.
 
+```{r}
+ggplot(gss, mapping = aes(x = educ, y = ..density..)) +
+  geom_histogram()+
+  geom_density()
+```
 
 
 
-**Response**:
+**Response**: Has two large peaks and is left skewed.
 
 
 Suppose we're interested in making inference about the typical number of years of education that a person has completed and this is our representative sample.
 Is the mean a good statistic to use here to describe the typical value of salary?
 Why or why not?
 
-**Response**:
+**Response**: No, because the data is not a normal distribution.
 
 
 Recall from your introductory statistics course that a one-sample *t*-test requires that the sample mean is Normally distributed.
 Does this assumption seem reasonable for the mean number of years of education?
 Why or why not?
 
-***Response**:
+***Response**: No, because the data is not a normal distribution.
 
 
 Since our sample size is so large, the distribution of the *sample mean* is approximately Normal (the CLT!).
