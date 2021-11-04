@@ -92,10 +92,13 @@ Since our sample size is so large, the distribution of the *sample mean* is appr
 The `t.test` function can be used to do a one-sample *t*-test and to find a 90% confidence interval for the mean number of years of education that US adults complete.
 Use this function to construct a 90% confidence interval for the mean number of years of education that US adults complete.
 
+```{r}
+t.test(gss$educ, conf.level = .9)
+```
 
 
 
-**Response**:
+**Response**: 
 
 
 ### Bootstrapping
@@ -134,6 +137,11 @@ Then, use the appropriate `purrr::map` function to calculate the mean for each o
 The last thing you want is those samples to change every time you knit your document because your interpretations might be slightly different so you will need to set a seed that is your birthday in `yymmdd` format (your instructor's seed would be set to the number `851217`).
 
 
+```{r}
+set.seed(000224)
+boot_educ_rerun <- gss_educ %>% 
+  rerun(
+```
 
 
 
